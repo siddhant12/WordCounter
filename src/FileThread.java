@@ -25,20 +25,20 @@ public class FileThread implements Callable {
             FileInputStream fileInputStream = new FileInputStream(file);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader reader = new BufferedReader(inputStreamReader);
-                while ((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null){
 
-                    if(!(line.equals(""))){
-                        line =  line.replaceAll("[^a-zA-Z0-9]", " ");
-                        String[] wordList = line.split("\\s+");
-                        for(String word: wordList){
-                            if(word.length() == 1 || word.equals("")){
-                                continue;
-                            }
-                            word = word.toLowerCase();
-                            addWordsToMap(word,map);
+                if(!(line.equals(""))){
+                    line =  line.replaceAll("[^a-zA-Z0-9]", " ");
+                    String[] wordList = line.split("\\s+");
+                    for(String word: wordList){
+                        if(word.length() == 1 || word.equals("")){
+                            continue;
                         }
+                        word = word.toLowerCase();
+                        addWordsToMap(word,map);
                     }
                 }
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

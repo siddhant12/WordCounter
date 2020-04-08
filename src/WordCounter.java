@@ -11,7 +11,7 @@ public class WordCounter {
     static HashMap<String,Integer> map= new HashMap<>();
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
-        
+
         URL url = new URL("http://www.gutenberg.org/files/2600/2600-0.txt");
         BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
 
